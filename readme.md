@@ -3,6 +3,15 @@
 
 Base for quick start beginning develop web application using React + Parcel (Frontend) and Express (Backend). You may replace Express on another technology.
 
+# Modules
+- FrontEnd: React, React Dom, Axios
+- BackEnd: Express
+- Tools: Nodemon, Cross-env
+- Compiler: Parcel
+
+# Features
+- Live reload
+
 # Installing
 
 ```
@@ -13,9 +22,9 @@ npm i
 
 # Usage
 
-Development mode (will start server with hot reload)
+Development mode (parcel base server) (will start server with live reload)
 ```
-npm run front 
+npm run front:dev
 ```
 Production mode
 ```
@@ -23,8 +32,13 @@ npm run front:build
 ```
 In both cases all files will export into /build directory.
 
-To run server script
+To run server script in development mode with hot reload (ctrl + s will work even from html files) type
 ```
-npm run server
+npm run server:dev
 ```
+And production mode
+```
+npm run server:build
+```
+
 
