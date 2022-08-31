@@ -5,15 +5,12 @@ import reloader from "./reloader.js"
 const server = express()
 const PORT = process.env.PORT || 3000
 
-
 server.use(express.static('./build'))
 reloader(server)
 
 server.get('/*', (req, res) => {
     res.sendFile(path.resolve('build', 'index.html'))
 })
-
-
 
 server.listen(PORT, (err) => {
     if (err) throw err

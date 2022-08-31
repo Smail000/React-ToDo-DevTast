@@ -7,7 +7,7 @@
   "scripts": {
     "front:dev": "parcel --open --dist-dir build",
     "front:build": "parcel build --dist-dir build",
-    "front:watch": "parcel watch --dist-dir build", 
+    "front:watch": "parcel watch --dist-dir build",
     "server:dev": "cross-env MODE=dev PORT=3000 nodemon ./server/server.js",
     "server:build": "cross-env MODE=prod PORT=3000 node ./server/server.js"
   },
@@ -25,7 +25,7 @@
     "nodemon": "^2.0.19",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router": "^6.3.0"
+    "react-router-dom": "^6.3.0"
   },
   "devDependencies": {
     "buffer": "^6.0.3",
