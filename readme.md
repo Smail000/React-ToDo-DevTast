@@ -26,6 +26,10 @@ Development mode (parcel base server) (will start server with live reload)
 ```
 npm run front:dev
 ```
+Or development mode without server, just compile every new save
+```
+npm run front:watch
+```
 Production mode
 ```
 npm run front:build
