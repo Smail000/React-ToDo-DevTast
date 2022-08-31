@@ -1,26 +1,18 @@
 import express from "express"
 import path from "path"
+import reloader from "./reloader.js"
 
 const server = express()
 const PORT = process.env.PORT || 3000
-const SessionKey = Date.now().toString()
 
 
 server.use(express.static('./build'))
-
-if (process.env.MODE === "dev") {
-    server.get('/getSessionKey', (req, res) => {
-        res.send(SessionKey)
-    })
-} else {
-    server.get('/getSessionKey', (req, res) => {
-        res.send('none')
-    })
-}
+reloader(server)
 
 server.get('/*', (req, res) => {
     res.sendFile(path.resolve('build', 'index.html'))
 })
+
 
 
 server.listen(PORT, (err) => {

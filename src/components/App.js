@@ -5,7 +5,7 @@ export default function App(props) {
         <div>
             <h1 style={{
                 textAlign: "center"
-            }}>Hello, Parcel!</h1>
+            }}>Hello, Parcel! {Date.now()}</h1>
         </div>
     )
 }
