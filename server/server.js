@@ -19,7 +19,6 @@ const io = new Server(httpServer)
 io.on("connection", socket => {
     socket.emit("change", DB.data)
     socket.on("change", async data => {
-        console.log(1);
         DB.data = data
         socket.broadcast.emit('change', DB.data)
         DB.save()
