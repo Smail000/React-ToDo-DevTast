@@ -17,9 +17,12 @@ const DB = new DataBase('./db/notes.json')
 const io = new Server(httpServer)
 
 io.on("connection", socket => {
-    console.log("User connected")
-    socket.on("data", data => {
-        console.log(data)
+    socket.emit("change", DB.data)
+    socket.on("change", async data => {
+        console.log(1);
+        DB.data = data
+        socket.broadcast.emit('change', DB.data)
+        DB.save()
     })
 })
 

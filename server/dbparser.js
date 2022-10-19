@@ -9,14 +9,14 @@ export default class DataBase {
         }
     }
 
-    async load () {
-        var data = await fs.promises.readFile(this.path)  
+    load () {
+        var data = fs.readFileSync(this.path)  
         this.data = JSON.parse(data);
         return this.data
     }
 
-    async save () {
-        await fs.promises.writeFile(this.path, JSON.stringify(this.data, null, 4))
+    save () {
+        fs.writeFileSync(this.path, JSON.stringify(this.data, null, 4))
         return false
     }
 
