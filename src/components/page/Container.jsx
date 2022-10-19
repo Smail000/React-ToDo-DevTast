@@ -3,6 +3,7 @@ import * as styles from "./Container.module.css"
 import Item from "./Item/Item"
 
 import io from 'socket.io-client';
+import Input from "./Input/Input";
 const socket = io();
 var toSend = false
 
@@ -33,6 +34,10 @@ export default function Container () {
                     onDelete={() => {setNotes(notes.filter(elem => elem.id !== note.id)); toSend = true}}/>
                 ))}
             </div>
+            <Input toAdd={(obj) => {
+                setNotes(notes.concat(obj))
+                toSend = true
+            }} />
         </div>
     )
 }
