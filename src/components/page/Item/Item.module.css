@@ -1,0 +1,21 @@
+
+
+.self {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    margin: 15px;
+}
+
+.id {
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.name {
+    margin: auto auto auto 10%;
+}
+
+.checkbox {
+
+}

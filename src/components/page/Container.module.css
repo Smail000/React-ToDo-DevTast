@@ -4,5 +4,13 @@
     width: 70%;
     min-width: 500px;
     margin: 100px auto;
-    background: #000;
+}
+
+.label {
+    margin-left: 20px;
+}
+
+.container {
+    background-color: lightblue;
+    border-radius: 12px;
 }
