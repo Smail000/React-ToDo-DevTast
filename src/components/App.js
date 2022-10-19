@@ -1,27 +1,24 @@
 import React from "react"
-import {
-    BrowserRouter as Router,
-    Routes,
-    Route
-} from "react-router-dom"
+import Container from "./page/Container"
 
-import NavBar from "./UI/NavBar/NavBar.jsx"
-
-import Home from "./pages/home/Home.jsx"
-import Docs from "./pages/docs/Docs.jsx"
-import About from "./pages/about/About.jsx"
+import io from 'socket.io-client';
+const socket = io();
 
 export default function App(props) {
+
+    useEffect(() => {
+        socket.on('connect', () => {
+          setIsConnected(true);
+        })
+    
+        return () => {
+          socket.off('connect');
+          socket.off('disconnect');
+          socket.off('pong');
+        };
+      }, []);
+
     return (
-        <Router>
-            <div>
-                <NavBar />
-                <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/docs" element={<Docs />} />
-                    <Route path="/about" element={<About />} />
-                </Routes>
-            </div>
-        </Router>
+        <Container notes={[]} socket={socket}/>
     )
 }

@@ -1,6 +1,6 @@
 
 import ReactDOM from "react-dom/client"
-import App from "./components/App"
+import App from "./components/App.js"
 import "./assets/css/index.css"
 
 import reloader from "./components/tools/reloader"

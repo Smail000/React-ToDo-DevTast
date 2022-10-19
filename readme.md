@@ -4,7 +4,7 @@
 Тестовое задание для прохода в Технический департамент СПбГУТ иимени профессора Бонча-Бруевича
 
 # Modules
-- FrontEnd: React, React Dom, SocketIO
+- FrontEnd: React, React Dom, SocketIO, Axios
 - BackEnd: Express
 - Tools: Nodemon, Cross-env
 - Compiler: Parcel

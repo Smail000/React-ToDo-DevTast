@@ -1,11 +1,27 @@
+
 import express from "express"
+import { createServer } from "http"
 import path from "path"
 import reloader from "./reloader.js"
 import ip from "ip"
 
+import DataBase from "./dbparser.js"
+import { Server } from "socket.io"
+
 const server = express()
+const httpServer = createServer(server)
 const PORT = process.env.PORT || 3000
 const MODE = process.env.MODE || 'dev'
+
+const DB = new DataBase('./db/notes.json')
+const io = new Server(httpServer)
+
+io.on("connection", socket => {
+    console.log("User connected")
+    socket.on("data", data => {
+        console.log(data)
+    })
+})
 
 server.use(express.static('./build'))
 server.use(express.json())
@@ -21,7 +37,7 @@ server.get('/*', (req, res) => {
     res.sendFile(path.resolve('build', 'index.html'))
 })
 
-server.listen(PORT, (err) => {
+httpServer.listen(PORT, (err) => {
     if (err) throw err
     console.log(`Server setting mode "${MODE}"`)
     console.log(`React-base custom server avaliable on`)

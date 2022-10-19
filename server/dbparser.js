@@ -1,48 +1,23 @@
-import * as fs from "fs"
+import fs from "fs"
+import path from "path"
 
-export class DataBase {
-    constructor (path="", connect=true) {
-        this.path = path
+export default class DataBase {
+    constructor (_path="", connect=true) {
+        this.path = path.resolve(_path)
         if (connect) {
-            this.connect()
+            this.load()
         }
     }
 
-    load () {
-        var statusCode
-        var result
-
-        fs.readFile(this.path, (err, data) => {
-            if (err) {
-                statusCode = 1
-                result = err
-                return
-            }
-
-            result = JSON.parse(data);
-            statusCode = 0
-        })
-
-        this.data = result
-        return {statusCode, result}
-    }
-
-    get getData() {
+    async load () {
+        var data = await fs.promises.readFile(this.path)  
+        this.data = JSON.parse(data);
         return this.data
     }
 
-    save () {
-        var result
-
-        fs.writeFile(this.path, this.data, (err) => {
-            if (err) {
-                result = err
-                return
-            }
-            result = false
-        });
-
-        return result
+    async save () {
+        await fs.promises.writeFile(this.path, JSON.stringify(this.data, null, 4))
+        return false
     }
 
 }

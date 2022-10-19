@@ -2,7 +2,23 @@
     "notes": [
         {
             "name": "test",
-            "data": "just test note"
+            "done": false,
+            "id": 1
+        },
+        {
+            "name": "test2",
+            "done": false,
+            "id": 2
+        },
+        {
+            "name": "test2",
+            "done": false,
+            "id": 3
+        },
+        {
+            "name": "test2",
+            "done": false,
+            "id": 4
         }
     ]
 }
